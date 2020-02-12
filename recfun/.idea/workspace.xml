@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="52178b54-8710-4725-97f2-932945667e89" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1Wku2utGrALzcMtsJM6bEwBFxCd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager" selected="JUnit.RecFunSuite">
+    <configuration name="RecFun" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="recfun.RecFun" />
+      <module name="progfun1-recfun" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="recfun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecFunSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progfun1-recfun" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="recfun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="recfun" />
+      <option name="MAIN_CLASS_NAME" value="recfun.RecFunSuite" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RecFunSuite" />
+        <item itemvalue="Application.RecFun" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="progfun1-recfun" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="recfun [file:/home/james/IdeaProjects/recfun/]" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="progfun1-recfun-build" />
+                <option name="path" value="$PROJECT_DIR$/project" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$" value="9429354276000" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="1861596165" />
+        <entry key="$PROJECT_DIR$/project/MOOCSettings.scala" value="598648594" />
+        <entry key="$PROJECT_DIR$/project/StudentTasks.scala" value="2255003577" />
+        <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
+        <entry key="$PROJECT_DIR$/project/buildSettings.sbt" value="2649409897" />
+        <entry key="$PROJECT_DIR$/project/plugins.sbt" value="2662701361" />
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../Coursera" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../example" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52178b54-8710-4725-97f2-932945667e89" name="Default Changelist" comment="" />
+      <created>1579705709435</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579705709435</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1874" height="283" key="GridCell.Tab.0.bottom" timestamp="1579781100583">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1579781100583" />
+    <state width="1874" height="283" key="GridCell.Tab.0.center" timestamp="1579781100583">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="283" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1579781100583" />
+    <state width="1874" height="283" key="GridCell.Tab.0.left" timestamp="1579781100583">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="283" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1579781100583" />
+    <state width="1874" height="283" key="GridCell.Tab.0.right" timestamp="1579781100583">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="283" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1579781100583" />
+    <state width="1874" height="349" key="GridCell.Tab.1.bottom" timestamp="1579776768519">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="349" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1579776768519" />
+    <state width="1874" height="349" key="GridCell.Tab.1.center" timestamp="1579776768519">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="349" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1579776768519" />
+    <state width="1874" height="349" key="GridCell.Tab.1.left" timestamp="1579776768519">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="349" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1579776768519" />
+    <state width="1874" height="349" key="GridCell.Tab.1.right" timestamp="1579776768519">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="349" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1579776768519" />
+    <state x="447" y="144" key="SettingsEditor" timestamp="1579706572779">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="447" y="144" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1579706572779" />
+    <state x="622" y="171" width="666" height="665" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579709766655">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="622" y="171" width="666" height="665" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1579709766655" />
+    <state x="623" y="232" key="search.everywhere.popup" timestamp="1579708703742">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="232" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1579708703742" />
+  </component>
+</project>
