@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m/home/james/IdeaProjects/example/src/test/scala/example/ListsSuite.scala:101:5: ambiguous reference to overloaded definition,[0m
+[0m[[0m[31merror[0m] [0m[0mboth method assert in object Predef of type (assertion: Boolean, message: => Any)Unit[0m
+[0m[[0m[31merror[0m] [0m[0mand  method assert in object Predef of type (assertion: Boolean)Unit[0m
+[0m[[0m[31merror[0m] [0m[0mmatch expected type ?[0m
+[0m[[0m[31merror[0m] [0m[0m    assert.assertEquals(sum(List(-1, -1)) == -2)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
