@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0mAcquiring lock on file /home/james/IdeaProjects/Functional_Programming_Scala/Design/quickcheck/project/target/.sbt-compilation-infos/quickcheck-compile/.sbt-idea-lock ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/james/IdeaProjects/Functional_Programming_Scala/Design/quickcheck/src/main/scala/quickcheck/QuickCheck.scala:113:17: abstract type pattern QuickCheckHeap.this.H is unchecked since it is eliminated by erasure[0m
+[0m[[0m[33mwarn[0m] [0m[0m        case _: H => {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[0mdebug[0m] [0m[0mReleasing lock on file /home/james/IdeaProjects/Functional_Programming_Scala/Design/quickcheck/project/target/.sbt-compilation-infos/quickcheck-compile/.sbt-idea-lock.[0m
