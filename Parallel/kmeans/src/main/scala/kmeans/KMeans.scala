@@ -1,11 +1,12 @@
 package kmeans
 
+import org.scalameter._
+
 import scala.annotation.tailrec
-import scala.collection.{Map, Seq, mutable}
 import scala.collection.parallel.CollectionConverters._
 import scala.collection.parallel.{ParMap, ParSeq}
+import scala.collection.{Map, Seq, mutable}
 import scala.util.Random
-import org.scalameter._
 
 class KMeans extends KMeansInterface {
 
@@ -43,12 +44,24 @@ class KMeans extends KMeansInterface {
     closest
   }
 
+  /**
+    * Take a sequence of points and a sequence of means, and return a map
+    * collection, which maps each mean to the sequence of points in the
+    * corresponding cluster.
+    *
+    * Use groupBy and the findClosest method, which is already defined for
+    * you. After that, make sure that all the means are in the resulting map,
+    * even if their sequences are empty.
+    * def groupBy[K](f: (A) => K): immutable.Map[K, Seq[A]]
+    */
   def classify(points: Seq[Point], means: Seq[Point]): Map[Point, Seq[Point]] = {
-    ???
+    if (points.isEmpty) means.map(point => (point, Seq.empty[Point])).toMap
+    else points.groupBy(point => findClosest(point, means))
   }
 
   def classify(points: ParSeq[Point], means: ParSeq[Point]): ParMap[Point, ParSeq[Point]] = {
-    ???
+    if (points.isEmpty) means.map(point => (point, ParSeq.empty[Point])).toMap
+    else points.groupBy(point => findClosest(point, means))
   }
 
   def findAverage(oldMean: Point, points: Seq[Point]): Point = if (points.isEmpty) oldMean else {
@@ -75,43 +88,78 @@ class KMeans extends KMeansInterface {
     new Point(x / points.length, y / points.length, z / points.length)
   }
 
+  /**
+    * Takes the map of classified points produced in the previous step, and
+    * the sequence of previous means. The method returns the new sequence of
+    * means.
+    *
+    * Take care to preserve order in the resulting sequence -- the mean i in
+    * the resulting sequence must correspond to the mean i from oldMeans.
+    *
+    * Make sure you use the findAverage method that is predefined for you.
+    * def findAverage(oldMean: Point, points: Seq[Point]): Point
+    */
   def update(classified: Map[Point, Seq[Point]], oldMeans: Seq[Point]): Seq[Point] = {
-    ???
+    oldMeans.map((oldMean) => findAverage(oldMean, classified(oldMean)))
   }
 
   def update(classified: ParMap[Point, ParSeq[Point]], oldMeans: ParSeq[Point]): ParSeq[Point] = {
-    ???
+    oldMeans.map((oldMean) => findAverage(oldMean, classified(oldMean)))
   }
 
+  /**
+    * Takes a sequence of old means and the sequence of updated means, and
+    * returns a boolean indicating if the algorithm converged or not.
+    */
   def converged(eta: Double, oldMeans: Seq[Point], newMeans: Seq[Point]): Boolean = {
-    ???
+    oldMeans.zip(newMeans).forall {
+      case (newMean, oldMean) =>
+        oldMean.squareDistance(newMean) <= eta
+    }
   }
 
   def converged(eta: Double, oldMeans: ParSeq[Point], newMeans: ParSeq[Point]): Boolean = {
-    ???
+    oldMeans.zip(newMeans).forall {
+      case (newMean, oldMean) =>
+        oldMean.squareDistance(newMean) <= eta
+    }
   }
 
+  /**
+    * The tail-recursive kMeans method takes a sequence of points, previously
+    * computed sequence of means, and the eta value, and return the sequence
+    * of means, each corresponding to a specific cluster.
+    */
   @tailrec
   final def kMeans(points: Seq[Point], means: Seq[Point], eta: Double): Seq[Point] = {
-    if (???) kMeans(???, ???, ???) else ??? // your implementation need to be tail recursive
+    val classified = classify(points, means)
+    val updated = update(classified, means)
+    if (!converged(eta, means, updated)) kMeans(points, updated, eta)
+    else updated
   }
 
   @tailrec
   final def kMeans(points: ParSeq[Point], means: ParSeq[Point], eta: Double): ParSeq[Point] = {
-    if (???) kMeans(???, ???, ???) else ??? // your implementation need to be tail recursive
+    val classified = classify(points, means)
+    val updated = update(classified, means)
+    if (!converged(eta, means, updated)) kMeans(points, updated, eta)
+    else updated
   }
 }
 
 /** Describes one point in three-dimensional space.
- *
- *  Note: deliberately uses reference equality.
- */
+  *
+  * Note: deliberately uses reference equality.
+  */
 class Point(val x: Double, val y: Double, val z: Double) {
   private def square(v: Double): Double = v * v
+
   def squareDistance(that: Point): Double = {
-    square(that.x - x)  + square(that.y - y) + square(that.z - z)
+    square(that.x - x) + square(that.y - y) + square(that.z - z)
   }
+
   private def round(v: Double): Double = (v * 100).toInt / 100.0
+
   override def toString = s"(${round(x)}, ${round(y)}, ${round(z)})"
 }
 
@@ -123,7 +171,7 @@ object KMeansRunner {
     Key.exec.maxWarmupRuns -> 40,
     Key.exec.benchRuns -> 25,
     Key.verbose -> true
-  ) withWarmer(new Warmer.Default)
+  ) withWarmer (new Warmer.Default)
 
   def main(args: Array[String]): Unit = {
     val kMeans = new KMeans()

@@ -2,17 +2,23 @@ package kmeans
 package fun
 
 import scala.collection.Seq
-import scala.collection.parallel.ParSeq
 import scala.collection.parallel.CollectionConverters._
+import scala.collection.parallel.ParSeq
 
 abstract sealed trait InitialSelectionStrategy
+
 case object RandomSampling extends InitialSelectionStrategy
+
 case object UniformSampling extends InitialSelectionStrategy
+
 case object UniformChoice extends InitialSelectionStrategy
 
 abstract sealed trait ConvergenceStrategy
+
 case class ConvergedWhenSNRAbove(x: Double) extends ConvergenceStrategy
+
 case class ConvergedAfterNSteps(n: Int) extends ConvergenceStrategy
+
 case class ConvergedAfterMeansAreStill(eta: Double) extends ConvergenceStrategy
 
 
@@ -28,10 +34,12 @@ class IndexedColorFilter(initialImage: Img,
   val means = initializeIndex(colorCount, points)
 
   /* The work is done here: */
-  private val newMeans = kMeans(points, means, 0.01)
+  //  private val newMeans = kMeans(points, means, 0.01)
+  private val newMeans = kMeans(points.par, means.par, 0.01)
 
   /* And these are the results exposed */
   def getStatus() = s"Converged after $steps steps."
+
   def getResult() = indexedImage(initialImage, newMeans)
 
   private def imageToPoints(img: Img): Seq[Point] =
@@ -81,11 +89,11 @@ class IndexedColorFilter(initialImage: Img,
           (for (r <- 0 until 255 by sep; g <- 0 until 255 by sep; b <- 0 until 255 by sep) yield {
             def inside(p: Point): Boolean =
               (p.x >= (r.toDouble / 255)) &&
-              (p.x <= ((r.toDouble + sep) / 255)) &&
-              (p.y >= (g.toDouble / 255)) &&
-              (p.y <= ((g.toDouble + sep) / 255)) &&
-              (p.z >= (b.toDouble / 255)) &&
-              (p.z <= ((b.toDouble + sep) / 255))
+                (p.x <= ((r.toDouble + sep) / 255)) &&
+                (p.y >= (g.toDouble / 255)) &&
+                (p.y <= ((g.toDouble + sep) / 255)) &&
+                (p.z >= (b.toDouble / 255)) &&
+                (p.z <= ((b.toDouble + sep) / 255))
 
             val pts = points.filter(inside(_))
             val cnt = pts.size * 3 * numColors / points.size
@@ -98,7 +106,7 @@ class IndexedColorFilter(initialImage: Img,
         case UniformChoice =>
           val d: Int = math.max(1, (256 / math.cbrt(numColors.toDouble).ceil).toInt)
           for (r <- 0 until 256 by d; g <- 0 until 256 by d; b <- 0 until 256 by d) yield
-            new Point(r.toDouble / 256,g.toDouble / 256, b.toDouble / 256)
+            new Point(r.toDouble / 256, g.toDouble / 256, b.toDouble / 256)
       }
 
     val d2 = initialPoints.size.toDouble / numColors
@@ -116,11 +124,11 @@ class IndexedColorFilter(initialImage: Img,
           (for (r <- 0 until 255 by sep; g <- 0 until 255 by sep; b <- 0 until 255 by sep) yield {
             def inside(p: Point): Boolean =
               (p.x >= (r.toDouble / 255)) &&
-              (p.x <= ((r.toDouble + sep) / 255)) &&
-              (p.y >= (g.toDouble / 255)) &&
-              (p.y <= ((g.toDouble + sep) / 255)) &&
-              (p.z >= (b.toDouble / 255)) &&
-              (p.z <= ((b.toDouble + sep) / 255))
+                (p.x <= ((r.toDouble + sep) / 255)) &&
+                (p.y >= (g.toDouble / 255)) &&
+                (p.y <= ((g.toDouble + sep) / 255)) &&
+                (p.z >= (b.toDouble / 255)) &&
+                (p.z <= ((b.toDouble + sep) / 255))
 
             val pts = points.filter(inside(_))
             val cnt = pts.size * 3 * numColors / points.size
@@ -133,7 +141,7 @@ class IndexedColorFilter(initialImage: Img,
         case UniformChoice =>
           val d: Int = math.max(1, (256 / math.cbrt(numColors.toDouble).ceil).toInt)
           for (r <- 0 until 256 by d; g <- 0 until 256 by d; b <- 0 until 256 by d) yield
-            new Point(r.toDouble / 256,g.toDouble / 256, b.toDouble / 256)
+            new Point(r.toDouble / 256, g.toDouble / 256, b.toDouble / 256)
       }
 
     val d2 = initialPoints.size.toDouble / numColors
@@ -150,7 +158,7 @@ class IndexedColorFilter(initialImage: Img,
       sound += sqrt(pow(point.x, 2) + pow(point.y, 2) + pow(point.z, 2))
       noise += sqrt(pow(point.x - closest.x, 2) + pow(point.y - closest.y, 2) + pow(point.z - closest.z, 2))
     }
-    sound/noise
+    sound / noise
   }
 
   private def computeSNR(points: ParSeq[Point], means: ParSeq[Point]): Double = {
@@ -163,7 +171,7 @@ class IndexedColorFilter(initialImage: Img,
       sound += sqrt(pow(point.x, 2) + pow(point.y, 2) + pow(point.z, 2))
       noise += sqrt(pow(point.x - closest.x, 2) + pow(point.y - closest.y, 2) + pow(point.z - closest.z, 2))
     }
-    sound/noise
+    sound / noise
   }
 
   override def converged(eta: Double, oldMeans: Seq[Point], newMeans: Seq[Point]): Boolean = {
